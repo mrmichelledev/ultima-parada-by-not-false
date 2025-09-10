@@ -6,8 +6,8 @@
   "name":"obj_parede",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"elementos do jogo",
+    "path":"folders/Objetos/elementos do jogo.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -26,11 +26,11 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"spr_parede",
     "path":"sprites/spr_parede/spr_parede.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

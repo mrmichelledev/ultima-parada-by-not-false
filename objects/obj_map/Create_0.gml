@@ -1,6 +1,6 @@
 //geração procedural
 tamanho_c   = 64
-room_width  = tamanho_c * 32
+room_width  = tamanho_c * 30
 room_height = room_width div 2
 tamanho_w   = room_width div tamanho_c
 tamanho_h   = room_height div tamanho_c
@@ -16,6 +16,14 @@ var xx        = tamanho_w div 2
 var yy        = tamanho_h div 2
 var troca_dir = 1
 
+//auto tiles
+norte = 1
+oeste = 2
+leste = 4
+sul = 8
+
+var tile_layer = layer_tilemap_get_id("WallTiles")
+
 for(var i = 0; i < 400; i++){
 	if(irandom(troca_dir) == troca_dir)
 		direcao_c = irandom(3)
@@ -27,6 +35,29 @@ for(var i = 0; i < 400; i++){
 	yy  = clamp(yy, 2, tamanho_h - 2)
 	
 	grade[# xx,yy] = 1
+}
+
+//tiles
+for(var x1 = 0; x1 < tamanho_w; x1++){
+	for(var y1 = 0; y1 < tamanho_h; y1++){
+		
+		if(grade[# x1,y1] == 0){
+			
+			var nt = grade[# x1,y1 - 1] == 0
+			var ot = grade[# x1 - 1,y1] == 0
+			var lt = grade[# x1 + 1,y1] == 0
+			var st = grade[# x1,y1 + 1] == 0
+			
+			var indice_tile = norte * nt + oeste * ot + leste * lt + sul * st + 1
+				
+			
+			tilemap_set(tile_layer, indice_tile, x1, y1);
+			
+		}
+		
+		if(grade[# x1,y1] == 1) tilemap_set(tile_layer, 17, x1, y1);
+		
+	}
 }
 
 
