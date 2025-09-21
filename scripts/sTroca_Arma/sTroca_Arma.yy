@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"sTroca_Arma",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"sTroca_Arma",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

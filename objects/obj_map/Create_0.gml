@@ -3,7 +3,7 @@ tamanho_c   = 64
 room_width  = tamanho_c * 30
 room_height = room_width div 2
 tamanho_w   = room_width div tamanho_c
-tamanho_h   = room_height div tamanho_c
+tamanho_h   = room_height div tamanho_c 
 
 //tamanho da grade
 grade       = ds_grid_create(tamanho_w, tamanho_h)
@@ -20,11 +20,11 @@ var troca_dir = 1
 norte = 1
 oeste = 2
 leste = 4
-sul = 8
+sul   = 8
 
 var tile_layer = layer_tilemap_get_id("WallTiles")
 
-for(var i = 0; i < 400; i++){
+for(var i = 0; i < 700; i++){
 	if(irandom(troca_dir) == troca_dir)
 		direcao_c = irandom(3)
 	
@@ -49,7 +49,6 @@ for(var x1 = 0; x1 < tamanho_w; x1++){
 			var st = grade[# x1,y1 + 1] == 0
 			
 			var indice_tile = norte * nt + oeste * ot + leste * lt + sul * st + 1
-				
 			
 			tilemap_set(tile_layer, indice_tile, x1, y1);
 			

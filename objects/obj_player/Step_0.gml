@@ -33,3 +33,18 @@ if(place_meeting(x, y + sign(velocidade_vertical), obj_parede)){
 }
 	
 y += velocidade_vertical
+
+//direção da arma
+with(arma_player){
+	var mb
+	var key_drop = keyboard_check_pressed(ord("F"))
+	
+	if(automatico) mb = mouse_check_button(mb_left)
+	else mb = mouse_check_button_pressed(mb_left)
+	
+	arma_direcao = point_direction(x, y, mouse_x, mouse_y)
+	
+	if(mb) atirar()
+	if(key_drop && arma_atual > 0) dropArma()
+	else if(key_drop && arma_atual == 0) pegaArma()
+}
