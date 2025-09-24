@@ -1,5 +1,5 @@
 //geração procedural
-tamanho_c   = 64
+tamanho_c   = 256
 room_width  = tamanho_c * 30
 room_height = room_width div 2
 tamanho_w   = room_width div tamanho_c
@@ -24,7 +24,7 @@ sul   = 8
 
 var tile_layer = layer_tilemap_get_id("WallTiles")
 
-for(var i = 0; i < 700; i++){
+for(var i = 0; i < 900; i++){
 	if(irandom(troca_dir) == troca_dir)
 		direcao_c = irandom(3)
 	
