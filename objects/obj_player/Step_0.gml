@@ -44,7 +44,7 @@ with(arma_player){
 	
 	arma_direcao = point_direction(x, y, mouse_x, mouse_y)
 	
-	if(mb) atirar()
+	if(mb){ atirar(); sScreen_Shake(2, 5)}
 	if(key_drop && arma_atual > 0) dropArma()
 	else if(key_drop && arma_atual == 0) pegaArma()
 }

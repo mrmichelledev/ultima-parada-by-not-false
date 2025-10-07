@@ -1,6 +1,6 @@
 //geração procedural
-tamanho_c   = 256
-room_width  = tamanho_c * 30
+tamanho_c   = 128
+room_width  = tamanho_c * 40
 room_height = room_width div 2
 tamanho_w   = room_width div tamanho_c
 tamanho_h   = room_height div tamanho_c 
@@ -24,7 +24,7 @@ sul   = 8
 
 var tile_layer = layer_tilemap_get_id("WallTiles")
 
-for(var i = 0; i < 900; i++){
+for(var i = 0; i < 1500; i++){
 	if(irandom(troca_dir) == troca_dir)
 		direcao_c = irandom(3)
 	
@@ -66,8 +66,9 @@ for(var i = 0; i < tamanho_w; i++){
 	for(var j = 0; j < tamanho_h; j++){
 		
 		//cria paredes
-		if(grade[# i,j] == 0) 
+		if(grade[# i,j] == 0)
 			instance_create_layer(i * tamanho_c, j * tamanho_c, "instances", obj_parede)
+		
 		
 		//cria objetos
 		if(grade[# i,j] == 1){
