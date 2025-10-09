@@ -11,10 +11,13 @@ ds_grid_clear(grade, 0)
 
 //direção para gerar as paredes
 randomize()
-var direcao_c = irandom(3)
-var xx        = tamanho_w div 2
-var yy        = tamanho_h div 2
-var troca_dir = 1
+var direcao_c   = irandom(3)
+var xx          = tamanho_w div 2
+var yy          = tamanho_h div 2
+var troca_dir   = 1
+
+//quantidade de inimigos
+var inimigo_max = 10
 
 //auto tiles
 norte = 1
@@ -78,6 +81,16 @@ for(var i = 0; i < tamanho_w; i++){
 				
 			if(!instance_exists(obj_player))
 				instance_create_layer(x1, y1, "instances", obj_player)
+				
+			if(inimigo_max > 0){
+				troca_dir = 25
+				
+				//deixa o spawn dos inimigos aleatorios e verifica se a distancia entre eles é superior a 1000
+				if(irandom(troca_dir) == troca_dir and point_distance(x1, y1, obj_player.x, obj_player.y) > 1000){
+					instance_create_layer(x1, y1, "instances", obj_inimigo)
+					inimigo_max--
+				}
+			}
 		}
 	}
 }

@@ -18,40 +18,61 @@ if(instance_exists(arma_id)){
 	
 	image_angle = arma_direcao
 	
-	if(mouse_wheel_up() or keyboard_check_pressed(vk_up)){
-		for(var i = i_armas; i <= max_armas; i++){
-			var indice = i + 1
+	if(mouse_wheel_up() || keyboard_check_pressed(vk_up)){
+	    mostrar_menu = true;
+	    alarm[0] = 30;
+
+	    var start = i_armas; // posição atual do cursor
+	    var passos = 0;
+	    var encontrou = false;
+
+	    // procura a próxima arma desbloqueada (sentido horário) com wrap, no máximo max_armas tentativas
+	    while(passos < max_armas){
+	        passos += 1;
+	        var indice = start + passos;
 			
-			if(indice == max_armas + 1) indice = 1
-			
-					
-			if(desbloqueada == true && indice != arma_atual){
-				sTroca_Arma(self, indice)
-				municao_atual = municao
-				i_armas = indice 
+	        if(indice > max_armas) indice -= max_armas;
+
+	        // testar corretamente o campo "desbloqueada" na ds_map
+	        if(armas[indice][? "desbloqueada"] && indice != arma_atual){
+	            sTroca_Arma(self, indice);
 				
-				exit
-			}
-		}
+	            // atualiza munição a partir do mapa (segurança caso sTroca_Arma não atribua)
+	            if(ds_exists(armas[indice], ds_type_map)) municao_atual = armas[indice][? "municao"];
+	            
+	            i_armas = indice;
+	            encontrou = true;
+	            break;
+	        }
+	    }
+
 	}
-	
-	if(mouse_wheel_down() or keyboard_check_pressed(vk_down)){
-		for(var i = i_armas; i >= 1; i--){
-			var indice = i - 1
-			
-			if(indice == 0) indice = max_armas
-			
-			i_armas = indice
-			
-			if(desbloqueada == true && indice != arma_atual){
-				sTroca_Arma(self, indice)
-				i_armas = indice 
+
+	if(mouse_wheel_down() || keyboard_check_pressed(vk_down)){
+	    mostrar_menu = true;
+	    alarm[0] = 30;
+
+	    var start = i_armas;
+	    var passos = 0;
+	    var encontrou = false;
+
+	    // procura a próxima arma desbloqueada (sentido anti-horário) com wrap
+	    while(passos < max_armas){
+	        passos += 1;
+	        var indice = start - passos;
+	        if(indice < 1) indice += max_armas;
+
+	        if(armas[indice][? "desbloqueada"] && indice != arma_atual){
+	            sTroca_Arma(self, indice);
 				
-				exit
-			}
-		}
+	            if(ds_exists(armas[indice], ds_type_map)) municao_atual = armas[indice][? "municao"];
+	          
+			    i_armas = indice;
+	            encontrou = true;
+	            break;
+	        }
+	    }
 	}
-	
 
 	
 	function atirar(){
@@ -86,7 +107,7 @@ if(instance_exists(arma_id)){
 		inst.direction    = arma_direcao
 		inst.speed        = 2
 		inst.municao      = municao_atual
-		armas[arma_atual][? "desbloqueada"] = false;
+		ds_map_replace(armas[arma_atual], "desbloqueada", false)
 		sTroca_Arma(self, 0)
 	}
 	
@@ -95,13 +116,15 @@ if(instance_exists(arma_id)){
 		//para pegar a arma mais proxima
 		var inst = instance_nearest(x, y, obj_dop_armas)
 		
-		if(instance_exists(inst)){
+		
+		if(instance_exists(inst) and point_distance(inst.x, inst.y, obj_player.x, obj_player.y) < 50){
 			sTroca_Arma(self, inst.arma_index)
 			municao_atual = inst.municao
 			instance_destroy(inst)
+			ds_map_replace(armas[arma_atual], "desbloqueada", true)
+			instance_destroy(obj_f)
 		}
 		
-		armas[arma_atual][? "desbloqueada"] = true;
 	}
 	
 	recuo_atual = lerp(recuo_atual, 0, .1)
@@ -110,32 +133,32 @@ if(instance_exists(arma_id)){
 
 
 if(arma_atual == 1){
-	parte1 = spr_wheel_se1
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un2 else parte2 = spr_wheel_unk2
+	parte1 = spr_wheel_se2
+	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
 	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
 	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 2){
 	
-	parte1 = spr_wheel_un1
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_se2 else parte2 = spr_wheel_unk2
+	parte1 = spr_wheel_un2
+	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_se1 else parte2 = spr_wheel_unk1
 	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
 	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 3){
 	
-	parte1 = spr_wheel_un1
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un2 else parte2 = spr_wheel_unk2
+	parte1 = spr_wheel_un2
+	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
 	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_se3 else parte3 = spr_wheel_unk3
 	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 4){
 	
-	parte1 = spr_wheel_un1
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un2 else parte2 = spr_wheel_unk2
+	parte1 = spr_wheel_un2
+	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
 	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
 	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_se4 else parte4 = spr_wheel_unk4
 }

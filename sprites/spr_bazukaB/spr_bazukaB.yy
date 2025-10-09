@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"armas",
-    "path":"folders/Sprites/elementos do jogo/armas.yy",
+    "name":"armas_s1",
+    "path":"folders/Sprites/elementos do jogo/armas/armas_s1.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

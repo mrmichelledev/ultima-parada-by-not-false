@@ -34,6 +34,9 @@
     "name":"spr_player",
     "path":"sprites/spr_player/spr_player.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_player_colisao",
+    "path":"sprites/spr_player_colisao/spr_player_colisao.yy",
+  },
   "visible":true,
 }

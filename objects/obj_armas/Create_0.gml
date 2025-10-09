@@ -9,7 +9,7 @@ ds_map_add(armas[0], "dano", 0)
 ds_map_add(armas[0], "delay", 0)
 ds_map_add(armas[0], "automatico", false)
 ds_map_add(armas[0], "drop", -1)
-ds_map_add(armas[0], "desbloqueada", true)
+ds_map_add(armas[0], "desbloqueada", false)
 
 //pistola
 armas[1] = ds_map_create()
@@ -72,7 +72,7 @@ arma_y       = 0
 recuo_atual  = 0
 atirarOn     = true
 
-sTroca_Arma(self, 3)
+sTroca_Arma(self, 0)
 
 municao_atual = municao
 
@@ -82,7 +82,7 @@ i_armas = arma_atual
 
 //menu circular
 mostrar_menu = false
-parte1 = spr_wheel_se1
-parte2 = spr_wheel_unk2
+parte1 = spr_wheel_se2
+parte2 = spr_wheel_unk1
 parte3 = spr_wheel_unk3
 parte4 = spr_wheel_unk4
