@@ -1,0 +1,1 @@
+controle_vida.perde_vida(10)

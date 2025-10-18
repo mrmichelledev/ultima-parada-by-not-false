@@ -1,0 +1,1 @@
+vida_atual = gerenciador_vida.ganha_vida()

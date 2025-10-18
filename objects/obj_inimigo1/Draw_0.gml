@@ -1,5 +1,7 @@
 draw_self();
 
+controle_vida.desenha_barraV(x - 25, y - 50, 50, 8, c_red, c_green, c_white)
+
 //Todos estes foram feitos para teste
 
 //Desenha o caminho para o player, não é útil para o inimigo 1, já que sua

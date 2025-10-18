@@ -1,4 +1,4 @@
-menu_inicial = ["Jogar", "Opcoes", "Sair"]
-
-var _tam = array_length(menu_inicial)
-esc = array_create(_tam, 1)
+//configuracoes menu
+menu_inicial = ["JOGAR", "OPCOES", "SAIR"]
+_tam = array_length(menu_inicial)
+index = 0

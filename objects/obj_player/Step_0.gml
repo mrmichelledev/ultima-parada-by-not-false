@@ -11,27 +11,8 @@ direcao = point_direction(0, 0, (direita - esquerda), (baixo - cima))
 
 velocidade_horizontal = lengthdir_x(velocidade * t, direcao)
 velocidade_vertical   = lengthdir_y(velocidade * t, direcao)
-
-//colisao horizontal
-if(place_meeting(x + sign(velocidade_horizontal), y, obj_parede)){
-	while(!place_meeting(x + sign(velocidade_horizontal), y, obj_parede)){
-		x += sign(velocidade_horizontal)
-	}
-		
-	velocidade_horizontal = 0;
-}
 	
 x += velocidade_horizontal
-
-//colisao vertical
-if(place_meeting(x, y + sign(velocidade_vertical), obj_parede)){
-	while(!place_meeting(x, y + sign(velocidade_vertical), obj_parede)){
-		y += sign(velocidade_vertical)
-	}
-		
-	velocidade_vertical = 0;
-}
-	
 y += velocidade_vertical
 
 //direção da arma
@@ -44,7 +25,13 @@ with(arma_player){
 	
 	arma_direcao = point_direction(x, y, mouse_x, mouse_y)
 	
-	if(mb){ atirar(); sScreen_Shake(2, 5)}
+	if(mb){ 
+		atirar()
+		sScreen_Shake(2, 5)
+		cursor_sprite = spr_cursor_atirando
+	} else cursor_sprite = spr_cursor
+	
+	
 	if(key_drop && arma_atual > 0) dropArma()
 	else if(key_drop && arma_atual == 0) pegaArma()
 }

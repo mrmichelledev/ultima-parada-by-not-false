@@ -83,4 +83,8 @@ for(var i=0; i<8; i++){
 	directions[i][1] = 0;
 }
 
+//vida inimigo
+vida_max = 100
+vida_atual = vida_max
 
+controle_vida = new sVida(vida_max) 

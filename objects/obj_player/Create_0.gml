@@ -7,3 +7,7 @@ direcao               = 0
 //arma do personagem
 arma_player = instance_create_layer(x, y, "Armas", obj_armas)
 arma_player.arma_id = self
+
+//cursor
+cursor_sprite = spr_cursor
+window_set_cursor(cr_none)

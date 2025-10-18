@@ -87,7 +87,7 @@ for(var i = 0; i < tamanho_w; i++){
 				
 				//deixa o spawn dos inimigos aleatorios e verifica se a distancia entre eles é superior a 1000
 				if(irandom(troca_dir) == troca_dir and point_distance(x1, y1, obj_player.x, obj_player.y) > 1000){
-					instance_create_layer(x1, y1, "instances", obj_inimigo)
+					instance_create_layer(x1, y1, "instances", obj_inimigo1)
 					inimigo_max--
 				}
 			}
