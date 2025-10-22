@@ -1,3 +1,5 @@
+draw_self();
+
 if(sprite != -1){
 	var recuo_x = lengthdir_x(recuo_atual, arma_direcao)
 	var recuo_y = lengthdir_y(recuo_atual, arma_direcao)

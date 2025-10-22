@@ -14,3 +14,5 @@ if (keyboard_check_pressed(vk_enter)) {
     }
 }
 
+window_set_cursor(cr_none)
+

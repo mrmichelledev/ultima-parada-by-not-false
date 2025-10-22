@@ -1,7 +1,5 @@
 draw_self();
 
-controle_vida.desenha_barraV(x - 25, y - 50, 50, 8, c_red, c_green, c_white)
-
 //Todos estes foram feitos para teste
 
 //Desenha o caminho para o player, não é útil para o inimigo 1, já que sua
@@ -12,7 +10,7 @@ if(keyboard_check(ord("P"))){
 	else draw_path(path_to_origin, x, y, 0);
 }
 
-if(curr_state == IDLE){
+/*if(curr_state == IDLE){
 	draw_text_transformed(x, y-20, "idle", 0.5, 0.5, image_angle);
 }
 if(curr_state == REPOSITION){
@@ -27,34 +25,14 @@ if(curr_state == CHASING){
 	draw_text_transformed(x, y-20, "chasing", 0.5, 0.5, image_angle);
 }
 
-//draw_text_transformed(x, y+10, check_dir_timer, 0.5, 0.5, image_angle);
-
-//draw_line_width(x, y, obj_player.x, obj_player.y, 0.5);
-
-
-//draw_text_transformed(x, y-30, 1/abs(distance_to_object(obj_player) - optimal_dis + 1), 0.5, 0.5, image_angle);
-
 draw_text_transformed(x, y-30, sign(speed), 0.5, 0.5, image_angle);
 
-draw_text_transformed(x, y+10, distance_to_object(obj_player), 0.5, 0.5, image_angle);
+draw_text_transformed(x, y+10, point_distance(x, y, obj_player.x, obj_player.y), 0.5, 0.5, image_angle);*/
 
-//draw_text_transformed(x, y-40, floor(99*(distance_to_object(obj_player)/atk_range)), 0.5, 0.5, image_angle);
+draw_self();
 
-//draw_text_transformed(x, y+10, aggro, 0.5, 0.5, image_angle);
+var x1, y1;
+if(image_xscale == -1) x1 = 45
+else x1 = -75
 
-//var i = 7;
-
-//var x1 = x + dir_collision[i][0];
-//var y1 = y + dir_collision[i][1];
-//var x2 = x + dir_collision[i][2];
-//var y2 = y + dir_collision[i][3];
-
-//var x1_to = x1 + lengthdir_x(20, directions[i][0]);
-//var y1_to = y1 + lengthdir_y(20, directions[i][0]);
-
-//var x2_to = x2 + lengthdir_x(20, directions[i][0]);
-//var y2_to = y2 + lengthdir_y(20, directions[i][0]);
-
-//draw_line_width(x1, y1, x1_to, y1_to, 0.5);
-//draw_line_width(x2, y2, x2_to, y2_to, 0.5);
-	
+gerenciador_vida.desenha_barraV(x + x1, y - 60, 30, 5, c_red, c_green, c_white)

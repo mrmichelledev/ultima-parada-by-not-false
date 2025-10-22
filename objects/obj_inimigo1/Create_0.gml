@@ -1,4 +1,3 @@
-
 #macro IDLE 0
 #macro REPOSITION 1
 #macro ATTACK 2
@@ -12,8 +11,6 @@
 aim_dir = 0;
 gun_dis = 11;
 
-
-
 curr_state = IDLE;
 
 x_origin = x;
@@ -22,16 +19,16 @@ y_origin = y;
 hp_max = 60;
 hp = hp_max;
 
-mv_spd = 1;
+mv_spd = 4;
 
 aggro = false;
-aggro_dis = 140;
+aggro_dis = 400;
 
 atk_range = aggro_dis;
 optimal_dis = atk_range - 40;
 atk_cd = 80;
 atk_timer = atk_cd;
-bullet_speed = 4;
+bullet_speed = 20;
 
 detection_delay = 60;
 detection_timer = 60;
@@ -83,8 +80,9 @@ for(var i=0; i<8; i++){
 	directions[i][1] = 0;
 }
 
-//vida inimigo
-vida_max = 100
-vida_atual = vida_max
+//vida
+vida_maxima = 100
+vida_atual  = vida_maxima
 
-controle_vida = new sVida(vida_max) 
+//gerenciador de vida
+gerenciador_vida = new sVida(vida_maxima)

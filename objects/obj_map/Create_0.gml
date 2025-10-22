@@ -76,8 +76,8 @@ for(var i = 0; i < tamanho_w; i++){
 		//cria objetos
 		if(grade[# i,j] == 1){
 			
-			var x1 = i * tamanho_c + tamanho_c / 2
-			var y1 = j * tamanho_c + tamanho_c / 2
+			var x1 = i * tamanho_c + tamanho_c / 4
+			var y1 = j * tamanho_c + tamanho_c / 4
 				
 			if(!instance_exists(obj_player))
 				instance_create_layer(x1, y1, "instances", obj_player)

@@ -1,8 +1,16 @@
 //se a arma existe
 if(instance_exists(arma_id)){
 	
+	//sprite player
+	if(obj_player.t != 0 and arma_atual == 0) obj_player.sprite_index = spr_player_andando
+	else if(obj_player.t == 0 and arma_atual == 0)  obj_player.sprite_index = spr_player_parado
+	else if(obj_player.t != 0 and arma_atual != 0) obj_player.sprite_index  = spr_player_andando_sem_braco_1
+	else obj_player.sprite_index = spr_player_parado_sem_braco_1
+	
 	x = arma_id.x
-	y = arma_id.y + 3
+	y = arma_id.y
+	
+	image_speed = 0.1166
 	
 	if(arma_direcao < 90 || arma_direcao > 270){
 		image_yscale = 1
@@ -11,6 +19,7 @@ if(instance_exists(arma_id)){
 	} else {
 		image_yscale = -1
 		arma_id.image_xscale = -1
+		
 	}	
 	
 	arma_x = x + lengthdir_x(15, arma_direcao)
@@ -76,7 +85,16 @@ if(instance_exists(arma_id)){
 
 	
 	function atirar(){
-		var projetil_inst = instance_create_layer(arma_x, arma_y, "Projeteis", obj_projetil)
+		var an, am
+		if (arma_direcao < 90 || arma_direcao > 270)an = -90
+		else an = 90
+		
+		// calcula posição de spawn rotacionando o offset (ox, oy) pela arma_direcao
+	    var spawn_x = arma_id.x + lengthdir_x(xProjetil, arma_direcao) + lengthdir_x(yProjetil, arma_direcao + 90);
+	    var spawn_y = arma_id.y + lengthdir_y(xProjetil, arma_direcao) + lengthdir_y(yProjetil, arma_direcao + an);
+		
+		var projetil_inst = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_projetil)
+		var muzzle_fire   = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_fire)
 		
 		if(!arma_atual > 0) return false
 		if(!atirarOn) return false
@@ -88,6 +106,9 @@ if(instance_exists(arma_id)){
 		projetil_inst.direction    = arma_direcao
 		projetil_inst.speed        = velocidade
 		projetil_inst.dano         = dano
+		muzzle_fire.sprite_index   = muzzle
+		muzzle_fire.image_angle    = arma_direcao
+		muzzle_fire.direction      = arma_direcao
 		recuo_atual                = recuo
 		atirarOn                   = false
 		alarm[0]                   = delay
@@ -101,7 +122,6 @@ if(instance_exists(arma_id)){
 		if(!arma_atual > 0) return false
 		
 		var inst = instance_create_layer(arma_x, arma_y, layer, drop)
-		
 		
 		inst.image_angle  = arma_direcao
 		inst.direction    = arma_direcao

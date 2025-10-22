@@ -1,6 +1,6 @@
 function get_aggro(){
 	//get distance to player
-	 dis = distance_to_object(obj_player);
+	 dis = point_distance(x, y, obj_player.x, obj_player.y);
 	 
 	 //se o player está dentro do range de detecção
 	if(dis <= aggro_dis){
@@ -33,7 +33,7 @@ function chase_player(){
 	
 	if(aggro && curr_state == CHASING){
 		//should we calc our path
-		if(calc_path_timer-- <= 0 && dis > atk_range){
+		if(calc_path_timer-- <= 0 && dis > atk_range && !collision_line(x, y, obj_player.x, obj_player.y, obj_parede, false, true)){
 			//reset timer
 			calc_path_timer = calc_path_delay;
 		
@@ -44,13 +44,16 @@ function chase_player(){
 	
 			if(_found_player){
 				//Deve haver a animação de andar aqui
+				image_index = spr_inimigo1_andando
 				
 				//Se ele estiver se movendo para a direita
 				if(direction > -90 and direction <= 90){
 					//Olhar para a direita
+					image_xscale = 1
 				}
 				else{
 					//Olhar para a esquerca
+					image_xscale = -1
 				}
 				
 				path_start(path_to_player, mv_spd, path_action_stop, false);
@@ -78,15 +81,16 @@ function return_to_origin(){
 		if(_found_path){
 			
 			//Deve haver a animação de andar aqui
+			image_index = spr_inimigo1_andando
 			
 			//Se ele estiver se movendo para a direita
 			if(direction > -90 and direction <= 90){
 				//Olhar para a direita
-				image_xscale = -1
+				image_xscale = 1
 			}
 			else{
 				//Olhar para a esquerca
-				image_yscale = 1
+				image_xscale = -1
 			}
 			
 			path_start(path_to_origin, 0.7*mv_spd, path_action_stop, false);
@@ -96,7 +100,7 @@ function return_to_origin(){
 	if(aggro){
 		
 		//Aqui a animação deve terminar
-		
+		image_index = spr_inimigo1_parado
 		path_end();
 	}
 	
@@ -108,7 +112,7 @@ function get_state(){
 		if(time_passed >= action_time){
 			time_passed = 0;
 		
-			dis = distance_to_object(obj_player);
+			dis = point_distance(x, y, obj_player.x, obj_player.y);
 			action = irandom(99);
 			action -= reposition_counter*20;
 			
@@ -149,14 +153,19 @@ function attack(){
 		
 		//Aqui deve ter a animação de atacar, mirando na direção do player
 		// sign(obj_player.x)
+		image_index = spr_inimigo1_atirando
 		
 		speed = 0;
 		
 		var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 		
 		var _bullet = instance_create_layer(x, y, "Projeteis", obj_bullet);
+		var _bullet_fire = instance_create_layer(x, y, "Projeteis", obj_fire);
 
 		with(_bullet){
+			_bullet_fire.sprite_index = m_14;
+			_bullet_fire.direction = _dir;
+			_bullet_fire.image_blend = c_white;
 			speed = other.bullet_speed;
 			direction = _dir;
 			image_angle = _dir;
@@ -185,12 +194,12 @@ function reposition(){
 		//Se o movimento horizontal for para a direita
 		if(_xmove > 0){
 			//Olhar para a direita
-			image_xscale = -1
+			image_xscale = 1
 		}
 		//Se for para a esquerda
 		else if(_xmove < 0){
 			//Olhar para a esquerda
-			image_xscale = 1
+			image_xscale = -1
 		}
 		//Se o movimento for puramente vertical
 		else{
@@ -232,7 +241,7 @@ function get_dir(){
 		found_dir = false;
 		
 		//O quanto o inimigo vai olhar à frente para tentar determinar uma direção válida
-		var _visao = distance_to_object(obj_player);
+		var _visao = point_distance(x, y, obj_player.x, obj_player.y);
 		if(_visao > atk_range){
 			_visao = atk_range;
 		}

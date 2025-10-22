@@ -10,8 +10,8 @@
   "name":"obj_menu",
   "overriddenProperties":[],
   "parent":{
-    "name":"configurações",
-    "path":"folders/Objetos/configurações.yy",
+    "name":"menu",
+    "path":"folders/Objetos/configurações/menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

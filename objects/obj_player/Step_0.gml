@@ -1,3 +1,6 @@
+if(global.pause){image_speed = 0; exit}
+else image_speed = 1
+
 //teclas para a movimentação 
 var cima     = keyboard_check(ord("W"));
 var baixo    = keyboard_check(ord("S"));
@@ -5,7 +8,7 @@ var esquerda = keyboard_check(ord("A"));
 var direita  = keyboard_check(ord("D"));
 
 //verifica se alguma tecla esta sendo pressionada, para deixar o personagem parado
-var t = (direita - esquerda) != 0 ||  (baixo - cima) != 0 
+t = (direita - esquerda) != 0 ||  (baixo - cima) != 0 
 
 direcao = point_direction(0, 0, (direita - esquerda), (baixo - cima))
 
@@ -14,6 +17,8 @@ velocidade_vertical   = lengthdir_y(velocidade * t, direcao)
 	
 x += velocidade_horizontal
 y += velocidade_vertical
+
+
 
 //direção da arma
 with(arma_player){
@@ -25,13 +30,25 @@ with(arma_player){
 	
 	arma_direcao = point_direction(x, y, mouse_x, mouse_y)
 	
-	if(mb){ 
-		atirar()
-		sScreen_Shake(2, 5)
-		cursor_sprite = spr_cursor_atirando
-	} else cursor_sprite = spr_cursor
-	
+	if (mb) {
+	    atirar();
+	    sScreen_Shake(2, 5);
+		atirou = true;
+	}
 	
 	if(key_drop && arma_atual > 0) dropArma()
 	else if(key_drop && arma_atual == 0) pegaArma()
 }
+
+
+
+if (mb) {
+    cursor_sprite = spr_cursor_atirando;
+    cursor_timer = 10;
+}
+
+if (cursor_timer > 0) {
+    cursor_timer--;
+    if (cursor_timer == 0) cursor_sprite = spr_cursor
+}
+

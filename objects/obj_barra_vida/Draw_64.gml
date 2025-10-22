@@ -1,1 +1,0 @@
-gerenciador_vida.desenha_barraV(200, 100, 800, 80, c_red, c_purple, c_white)

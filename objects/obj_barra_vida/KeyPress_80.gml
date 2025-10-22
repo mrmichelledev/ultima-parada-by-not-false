@@ -1,1 +1,0 @@
-vida_atual = gerenciador_vida.perde_vida()

@@ -1,5 +1,5 @@
 dmg = 5;
-range = 250;
+range = 500;
 owner_id = noone;
 
 function bullet_die(){

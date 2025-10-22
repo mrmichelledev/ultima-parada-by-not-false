@@ -6,14 +6,14 @@ function sVida(_vida_max) constructor{
 	barra_delay           = vida_atual
 	barra_efeito          = vida_atual
 	
-	static perde_vida     = function(_dano = 1){
+	static perde_vida     = function(_dano){
 		vida_atual       -= _dano
 		vida_atual        = clamp(vida_atual, 0, vida_max)
 		
 		return vida_atual
 	}
 	
-	static ganha_vida     = function(_recupera = 1){
+	static ganha_vida     = function(_recupera){
 		vida_atual       += _recupera
 		vida_atual        = clamp(vida_atual, 0, vida_max)
 		
