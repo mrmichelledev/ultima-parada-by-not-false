@@ -4,7 +4,7 @@ velocidade_horizontal = 0
 velocidade_vertical   = 0 
 direcao               = 0
 t                     = 0
-atirou                = false
+global.atirou                = true
 
 //arma do personagem
 arma_player = instance_create_layer(x, y, "Armas", obj_armas)

@@ -31,9 +31,9 @@ with(arma_player){
 	arma_direcao = point_direction(x, y, mouse_x, mouse_y)
 	
 	if (mb) {
+		if(arma_atual == 0 || municao_atual == 0) audio_play_sound(sn_notammo, 2, false)
 	    atirar();
-	    sScreen_Shake(2, 5);
-		atirou = true;
+	    sScreen_Shake(2, 5)
 	}
 	
 	if(key_drop && arma_atual > 0) dropArma()

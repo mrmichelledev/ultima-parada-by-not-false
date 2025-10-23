@@ -31,8 +31,4 @@ draw_text_transformed(x, y+10, point_distance(x, y, obj_player.x, obj_player.y),
 
 draw_self();
 
-var x1, y1;
-if(image_xscale == -1) x1 = 45
-else x1 = -75
-
-gerenciador_vida.desenha_barraV(x + x1, y - 60, 30, 5, c_red, c_green, c_white)
+gerenciador_vida.desenha_barraV(x - 15, y - 60, 30, 5, c_red, c_green, c_white)

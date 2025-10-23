@@ -28,6 +28,7 @@ if(instance_exists(arma_id)){
 	image_angle = arma_direcao
 	
 	if(mouse_wheel_up() || keyboard_check_pressed(vk_up)){
+		audio_play_sound(sn_equipe, 3, false)
 	    mostrar_menu = true;
 	    alarm[0] = 30;
 
@@ -58,6 +59,7 @@ if(instance_exists(arma_id)){
 	}
 
 	if(mouse_wheel_down() || keyboard_check_pressed(vk_down)){
+		audio_play_sound(sn_equipe, 3, false)
 	    mostrar_menu = true;
 	    alarm[0] = 30;
 
@@ -113,6 +115,7 @@ if(instance_exists(arma_id)){
 		atirarOn                   = false
 		alarm[0]                   = delay
 		municao_atual--
+		audio_play_sound(som, 2, false)
 		
 	}
 	

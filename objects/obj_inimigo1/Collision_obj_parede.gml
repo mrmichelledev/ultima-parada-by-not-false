@@ -1,1 +1,1 @@
-scr_collision();
+collision();

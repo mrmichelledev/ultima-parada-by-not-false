@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sn_Bazuca",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.7212925,
+  "name":"sn_Bazuca",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sn_Bazuca.wav",
+  "type":0,
+  "volume":1.0,
+}

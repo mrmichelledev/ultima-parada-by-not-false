@@ -158,13 +158,19 @@ function attack(){
 		speed = 0;
 		
 		var _dir = point_direction(x, y, obj_player.x, obj_player.y);
+		var x1;
 		
-		var _bullet = instance_create_layer(x, y, "Projeteis", obj_bullet);
-		var _bullet_fire = instance_create_layer(x, y, "Projeteis", obj_fire);
+		if(image_xscale = -1) x1 = -61
+		else x1 = 61
+		
+		var _bullet = instance_create_layer(x + x1, y, "Projeteis", obj_bullet);
+		var _bullet_fire = instance_create_layer(x + x1, y, "Projeteis", obj_fire);
 
 		with(_bullet){
+			audio_play_sound(sn_inimigo1, 3, false)
 			_bullet_fire.sprite_index = m_14;
 			_bullet_fire.direction = _dir;
+			_bullet_fire.image_angle =_dir;
 			_bullet_fire.image_blend = c_white;
 			speed = other.bullet_speed;
 			direction = _dir;

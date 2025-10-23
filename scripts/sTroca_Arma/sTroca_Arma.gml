@@ -8,6 +8,7 @@ function sTroca_Arma(_id, index){
 	_id.xProjetil    = map[? "xProjetil"]
 	_id.yProjetil    = map[? "yProjetil"]
 	_id.municao      = map[? "municao"]
+	_id.som          = map[? "som"]
 	_id.velocidade   = map[? "velocidade"]
 	_id.recuo        = map[? "recuo"]
 	_id.dano         = map[? "dano"]
