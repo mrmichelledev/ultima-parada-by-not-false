@@ -17,7 +17,7 @@ var yy          = tamanho_h div 2
 var troca_dir   = 1
 
 //quantidade de inimigos
-var inimigo_max = 10
+var inimigo_max = 20
 
 //auto tiles
 norte = 1

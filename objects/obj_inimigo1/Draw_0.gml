@@ -31,4 +31,4 @@ draw_text_transformed(x, y+10, point_distance(x, y, obj_player.x, obj_player.y),
 
 draw_self();
 
-gerenciador_vida.desenha_barraV(x - 15, y - 60, 30, 5, c_red, c_green, c_white)
+gerenciador_vida.desenha_barraV(x - 15, y - 60, 30, 5, c_red, c_green, c_white, false)

@@ -13,6 +13,7 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"","%Name":"a58fc96f-ce25-408a-8b22-a90c13f0a336","name":"a58fc96f-ce25-408a-8b22-a90c13f0a336","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"752a6e0b-a64e-4405-ba34-b04d5b33c9d6","name":"752a6e0b-a64e-4405-ba34-b04d5b33c9d6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":8,
   "gridY":10,
@@ -20,6 +21,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"41ee8982-6229-4bd5-8919-60a670dd3be5","blendMode":0,"displayName":"default","isLocked":false,"name":"41ee8982-6229-4bd5-8919-60a670dd3be5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"Copied Layer 1","blendMode":0,"displayName":"default","isLocked":false,"name":"Copied Layer 1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_barra_vida",
   "nineSlice":null,
@@ -49,7 +51,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":1.0,
+    "length":2.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -59,7 +61,7 @@
     },
     "name":"spr_barra_vida",
     "playback":1,
-    "playbackSpeed":2.0,
+    "playbackSpeed":0.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -73,12 +75,15 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a58fc96f-ce25-408a-8b22-a90c13f0a336","path":"sprites/spr_barra_vida/spr_barra_vida.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"173aa33c-0cf3-4f74-bb24-f986db199244","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"752a6e0b-a64e-4405-ba34-b04d5b33c9d6","path":"sprites/spr_barra_vida/spr_barra_vida.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d77042f2-f0ff-4343-bf32-02a30a04bf6a","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":70,
-    "yorigin":30,
+    "xorigin":71,
+    "yorigin":31,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

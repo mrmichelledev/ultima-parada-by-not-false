@@ -9,8 +9,8 @@
   "name":"obj_particula",
   "overriddenProperties":[],
   "parent":{
-    "name":"configurações",
-    "path":"folders/Objetos/configurações.yy",
+    "name":"inimigos",
+    "path":"folders/Objetos/elementos do jogo/inimigos.yy",
   },
   "parentObjectId":null,
   "persistent":false,

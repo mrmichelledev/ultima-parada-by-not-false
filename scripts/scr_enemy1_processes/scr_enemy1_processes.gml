@@ -160,8 +160,8 @@ function attack(){
 		var _dir = point_direction(x, y, obj_player.x, obj_player.y);
 		var x1;
 		
-		if(image_xscale = -1) x1 = -61
-		else x1 = 61
+		if(image_xscale = -1) x1 = 61
+		else x1 = -18
 		
 		var _bullet = instance_create_layer(x + x1, y, "Projeteis", obj_bullet);
 		var _bullet_fire = instance_create_layer(x + x1, y, "Projeteis", obj_fire);

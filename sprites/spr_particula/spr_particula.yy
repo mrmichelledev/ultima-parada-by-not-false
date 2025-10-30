@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"configurações",
-    "path":"folders/Sprites/configurações.yy",
+    "name":"construtores",
+    "path":"folders/Sprites/elementos do jogo/construtores.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

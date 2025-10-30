@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":6.6,
+  "duration":0.18804988,
   "name":"sn_dano",
   "parent":{
     "name":"Sons",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sn_dano.mp3",
+  "soundFile":"sn_dano.wav",
   "type":0,
   "volume":1.0,
 }

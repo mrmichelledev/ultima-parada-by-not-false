@@ -9,8 +9,8 @@
   "name":"obj_bullet_explode",
   "overriddenProperties":[],
   "parent":{
-    "name":"inimigos",
-    "path":"folders/Objetos/elementos do jogo/inimigos.yy",
+    "name":"armas",
+    "path":"folders/Objetos/elementos do jogo/armas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

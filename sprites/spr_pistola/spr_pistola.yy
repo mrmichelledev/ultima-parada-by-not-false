@@ -3,7 +3,7 @@
   "%Name":"spr_pistola",
   "bboxMode":0,
   "bbox_bottom":25,
-  "bbox_left":0,
+  "bbox_left":16,
   "bbox_right":60,
   "bbox_top":0,
   "collisionKind":1,
