@@ -8,8 +8,8 @@
   "name":"obj_f",
   "overriddenProperties":[],
   "parent":{
-    "name":"armas",
-    "path":"folders/Objetos/elementos do jogo/armas.yy",
+    "name":"elementosArmas",
+    "path":"folders/Objetos/elementos do jogo/armas/elementosArmas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bazuka",
-    "path":"sprites/spr_bazuka/spr_bazuka.yy",
+    "name":"spr_bazukaD",
+    "path":"sprites/spr_bazukaD/spr_bazukaD.yy",
   },
   "spriteMaskId":null,
   "visible":true,

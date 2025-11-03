@@ -44,16 +44,13 @@ function chase_player(){
 	
 			if(_found_player){
 				//Deve haver a animação de andar aqui
-				image_index = spr_inimigo1_andando
 				
 				//Se ele estiver se movendo para a direita
 				if(direction > -90 and direction <= 90){
 					//Olhar para a direita
-					image_xscale = 1
 				}
 				else{
 					//Olhar para a esquerca
-					image_xscale = -1
 				}
 				
 				path_start(path_to_player, mv_spd, path_action_stop, false);
@@ -81,16 +78,15 @@ function return_to_origin(){
 		if(_found_path){
 			
 			//Deve haver a animação de andar aqui
-			image_index = spr_inimigo1_andando
 			
 			//Se ele estiver se movendo para a direita
 			if(direction > -90 and direction <= 90){
 				//Olhar para a direita
-				image_xscale = 1
+				image_xscale = -1
 			}
 			else{
 				//Olhar para a esquerca
-				image_xscale = -1
+				image_yscale = 1
 			}
 			
 			path_start(path_to_origin, 0.7*mv_spd, path_action_stop, false);
@@ -100,7 +96,7 @@ function return_to_origin(){
 	if(aggro){
 		
 		//Aqui a animação deve terminar
-		image_index = spr_inimigo1_parado
+		
 		path_end();
 	}
 	
@@ -153,7 +149,6 @@ function attack(){
 		
 		//Aqui deve ter a animação de atacar, mirando na direção do player
 		// sign(obj_player.x)
-		image_index = spr_inimigo1_atirando
 		
 		speed = 0;
 		
@@ -161,11 +156,11 @@ function attack(){
 		var x1;
 		
 		if(image_xscale = -1) x1 = 61
-		else x1 = -18
+		else x1 = -59
 		
 		var _bullet = instance_create_layer(x + x1, y, "Projeteis", obj_bullet);
 		var _bullet_fire = instance_create_layer(x + x1, y, "Projeteis", obj_fire);
-
+		
 		with(_bullet){
 			audio_play_sound(sn_inimigo1, 3, false)
 			_bullet_fire.sprite_index = m_14;
@@ -178,8 +173,7 @@ function attack(){
 			owner_id = other;
 		}
 		atk_timer = atk_cd;
-	}
-	
+	}	
 	
 	
 	

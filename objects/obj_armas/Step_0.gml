@@ -27,7 +27,7 @@ if(instance_exists(arma_id)){
 	
 	image_angle = arma_direcao
 	
-	if(mouse_wheel_up() || keyboard_check_pressed(vk_up)){
+	if(keyboard_check_pressed(vk_up) and !global.pause){
 		audio_play_sound(sn_equipe, 3, false)
 	    mostrar_menu = true;
 	    alarm[0] = 30;
@@ -48,8 +48,8 @@ if(instance_exists(arma_id)){
 	            sTroca_Arma(self, indice);
 				
 	            // atualiza munição a partir do mapa (segurança caso sTroca_Arma não atribua)
-	            if(ds_exists(armas[indice], ds_type_map)) municao_atual = armas[indice][? "municao"];
-	            
+	            if(ds_exists(armas[indice], ds_type_map)) municao_atual = armas[indice][? "municao"]	
+				
 	            i_armas = indice;
 	            encontrou = true;
 	            break;
@@ -58,7 +58,7 @@ if(instance_exists(arma_id)){
 
 	}
 
-	if(mouse_wheel_down() || keyboard_check_pressed(vk_down)){
+	if(keyboard_check_pressed(vk_down) and !global.pause){
 		audio_play_sound(sn_equipe, 3, false)
 	    mostrar_menu = true;
 	    alarm[0] = 30;
@@ -77,7 +77,7 @@ if(instance_exists(arma_id)){
 	            sTroca_Arma(self, indice);
 				
 	            if(ds_exists(armas[indice], ds_type_map)) municao_atual = armas[indice][? "municao"];
-	          
+					
 			    i_armas = indice;
 	            encontrou = true;
 	            break;
@@ -92,22 +92,29 @@ if(instance_exists(arma_id)){
 		else an = 90
 		
 		// calcula posição de spawn rotacionando o offset (ox, oy) pela arma_direcao
-	    var spawn_x = arma_id.x + lengthdir_x(xProjetil, arma_direcao) + lengthdir_x(yProjetil, arma_direcao + 90);
-	    var spawn_y = arma_id.y + lengthdir_y(xProjetil, arma_direcao) + lengthdir_y(yProjetil, arma_direcao + an);
+	    var spawn_x     = arma_id.x + lengthdir_x(xProjetil, arma_direcao) + lengthdir_x(yProjetil, arma_direcao + 90);
+	    var spawn_y     = arma_id.y + lengthdir_y(xProjetil, arma_direcao) + lengthdir_y(yProjetil, arma_direcao + an);
 		
-		var projetil_inst = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_projetil)
-		var muzzle_fire   = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_fire)
+		var muzzle_fire = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_fire)
 		
 		if(!arma_atual > 0) return false
 		if(!atirarOn) return false
 		if(!municao_atual > 0) return false
 		
+		var quantidade_projetil = 1
+		var dist = 3
+		if(arma_atual == 2) quantidade_projetil = 3
 		
-		projetil_inst.sprite_index = projetil
-		projetil_inst.image_angle  = arma_direcao
-		projetil_inst.direction    = arma_direcao
-		projetil_inst.speed        = velocidade
-		projetil_inst.dano         = dano
+		for(var i = 0; i < quantidade_projetil; i++){
+			var projetil_inst = instance_create_layer(spawn_x, spawn_y, "Projeteis", obj_projetil)
+			
+			projetil_inst.sprite_index = projetil
+			projetil_inst.image_angle  = arma_direcao + (dist * i)
+			projetil_inst.direction    = arma_direcao + (dist * i)
+			projetil_inst.speed        = velocidade
+			projetil_inst.dano         = dano
+		}
+		
 		muzzle_fire.sprite_index   = muzzle
 		muzzle_fire.image_angle    = arma_direcao
 		muzzle_fire.direction      = arma_direcao
@@ -115,8 +122,13 @@ if(instance_exists(arma_id)){
 		atirarOn                   = false
 		alarm[0]                   = delay
 		municao_atual--
-		audio_play_sound(som, 2, false)
 		
+		if(municao_atual == 0) ds_map_replace(arma_atual, "municao", 0)
+		
+		if(arma_atual == 3) obj_player.x -= 2
+		else obj_player.x -= 10 * arma_atual
+		
+		audio_play_sound(som, 2, false)
 	}
 	
 	
@@ -154,34 +166,45 @@ if(instance_exists(arma_id)){
 	
 } else instance_destroy()
 
+if(arma_atual == 0){
+
+	parte1 = spr_wheel_unk2
+	parte2 = spr_wheel_unk1
+	parte3 = spr_wheel_unk3
+	parte4 = spr_wheel_unk4
+
+}
+
 
 if(arma_atual == 1){
-	parte1 = spr_wheel_se2
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
-	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
-	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
+	
+	if(armas[1][? "desbloqueada"]) parte1 = spr_wheel_se2 else parte1 = spr_wheel_unk2
+	if(armas[2][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
+	if(armas[3][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
+	if(armas[4][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 2){
 	
-	parte1 = spr_wheel_un2
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_se1 else parte2 = spr_wheel_unk1
-	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
-	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
+	if(armas[1][? "desbloqueada"]) parte1 = spr_wheel_un2 else parte1 = spr_wheel_unk2
+	if(armas[2][? "desbloqueada"]) parte2 = spr_wheel_se1 else parte2 = spr_wheel_unk1
+	if(armas[3][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
+	if(armas[4][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 3){
 	
-	parte1 = spr_wheel_un2
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
-	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_se3 else parte3 = spr_wheel_unk3
-	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
+	if(armas[1][? "desbloqueada"]) parte1 = spr_wheel_un2 else parte1 = spr_wheel_unk2
+	if(armas[2][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
+	if(armas[3][? "desbloqueada"]) parte3 = spr_wheel_se3 else parte3 = spr_wheel_unk3
+	if(armas[4][? "desbloqueada"]) parte4 = spr_wheel_un4 else parte4 = spr_wheel_unk4
 }
 
 if(arma_atual == 4){
 	
-	parte1 = spr_wheel_un2
-	if(armas[1][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
-	if(armas[2][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
-	if(armas[3][? "desbloqueada"]) parte4 = spr_wheel_se4 else parte4 = spr_wheel_unk4
+	if(armas[1][? "desbloqueada"]) parte1 = spr_wheel_un2 else parte1 = spr_wheel_unk2
+	if(armas[2][? "desbloqueada"]) parte2 = spr_wheel_un1 else parte2 = spr_wheel_unk1
+	if(armas[3][? "desbloqueada"]) parte3 = spr_wheel_un3 else parte3 = spr_wheel_unk3
+	if(armas[4][? "desbloqueada"]) parte4 = spr_wheel_se4 else parte4 = spr_wheel_unk4
+	
 }

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_escopeta",
-    "path":"sprites/spr_escopeta/spr_escopeta.yy",
+    "name":"spr_escopetaD",
+    "path":"sprites/spr_escopetaD/spr_escopetaD.yy",
   },
   "spriteMaskId":null,
   "visible":true,

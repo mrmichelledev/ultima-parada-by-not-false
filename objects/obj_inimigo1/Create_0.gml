@@ -22,7 +22,7 @@ hp = hp_max;
 mv_spd = 4;
 
 aggro = false;
-aggro_dis = 400;
+aggro_dis = 500;
 
 atk_range = aggro_dis;
 optimal_dis = atk_range - 40;
@@ -86,3 +86,9 @@ vida_atual  = vida_maxima
 
 //gerenciador de vida
 gerenciador_vida = new sVida(vida_maxima)
+
+//criando inimigo
+colisao = instance_create_layer(x, y, "Instances", obj_inimigo_colisao)
+
+// diz que o dono da colisão é ESTE inimigo
+colisao.dono = id;

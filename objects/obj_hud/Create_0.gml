@@ -1,4 +1,4 @@
-vida_maxima      = 100
+vida_maxima      = 1000
 vida_atual       = vida_maxima
 
 //gerenciador de vida

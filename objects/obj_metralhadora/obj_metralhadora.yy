@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_metralhadora",
-    "path":"sprites/spr_metralhadora/spr_metralhadora.yy",
+    "name":"spr_metralhadoraD",
+    "path":"sprites/spr_metralhadoraD/spr_metralhadoraD.yy",
   },
   "spriteMaskId":null,
   "visible":true,

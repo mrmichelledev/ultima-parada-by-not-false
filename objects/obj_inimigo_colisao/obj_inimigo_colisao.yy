@@ -1,9 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_inimigo",
-  "eventList":[],
+  "%Name":"obj_inimigo_colisao",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_projetil","path":"objects/obj_projetil/obj_projetil.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_inimigo",
+  "name":"obj_inimigo_colisao",
   "overriddenProperties":[],
   "parent":{
     "name":"inimigos",
@@ -28,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy2",
-    "path":"sprites/spr_enemy2/spr_enemy2.yy",
+    "name":"spr_inimigo1_colisao",
+    "path":"sprites/spr_inimigo1_colisao/spr_inimigo1_colisao.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

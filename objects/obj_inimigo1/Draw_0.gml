@@ -29,6 +29,4 @@ draw_text_transformed(x, y-30, sign(speed), 0.5, 0.5, image_angle);
 
 draw_text_transformed(x, y+10, point_distance(x, y, obj_player.x, obj_player.y), 0.5, 0.5, image_angle);*/
 
-draw_self();
-
 gerenciador_vida.desenha_barraV(x - 15, y - 60, 30, 5, c_red, c_green, c_white, false)

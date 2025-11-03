@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"sn_Pistola",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.035714287,
+  "duration":1.9680046,
+  "exportDir":"",
   "name":"sn_Pistola",
   "parent":{
     "name":"Sons",
@@ -19,7 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sn_Pistola.wav",
-  "type":0,
+  "soundFile":"sn_Pistola.mp3",
   "volume":1.0,
 }
