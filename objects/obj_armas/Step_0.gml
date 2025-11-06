@@ -123,11 +123,14 @@ if(instance_exists(arma_id)){
 		alarm[0]                   = delay
 		municao_atual--
 		
-		if(municao_atual == 0) ds_map_replace(arma_atual, "municao", 0)
+		ds_map_replace(arma_atual, "municao", municao_atual)
+		
+		show_debug_message(municao_atual)
 		
 		if(arma_atual == 3) obj_player.x -= 2
 		else obj_player.x -= 10 * arma_atual
 		
+		sScreen_Shake(5 + arma_atual, 5)
 		audio_play_sound(som, 2, false)
 	}
 	

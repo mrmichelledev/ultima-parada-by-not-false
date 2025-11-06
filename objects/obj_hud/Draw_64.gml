@@ -1,21 +1,26 @@
-var cor1 = make_color_rgb(127, 50, 73)
-var cor2 = make_color_rgb(127, 27, 14)
-var teste = make_color_rgb(229, 159, 25)
+var cor1        = make_color_rgb(127, 50, 73)
+var cor2        = make_color_rgb(127, 27, 14)
+var teste       = make_color_rgb(229, 159, 25)
 var cor_dourada = make_color_rgb(212, 178, 78)
-var cor_claro = make_color_rgb(233, 217, 140)
+var cor_azul    = make_color_rgb(56, 80, 91)
+var cor_claro   =c_black
 
-gerenciador_vida.desenha_barraV(200, 100, 860, 30, cor2, cor1, c_black, true)
-draw_sprite(spr_barra_vida, 0, 200, 100)
+var lar         =  display_get_width() - 500
 
-var texto = string(obj_armas.municao_atual)
+gerenciador_vida.desenha_barraV(lar, 100, 860, 30, cor2, cor1, c_black, true)
+draw_sprite(spr_barra_vida, 0, lar, 100)
 
-draw_set_font(fHud)
-draw_set_color(cor_claro)
-draw_text(200, 200, texto)
+if(obj_armas.arma_atual > 0){
+	var barra_tam   = 860 * (obj_armas.municao_atual / obj_armas.municaoMax)
+	var barra_tFix  = 860
 
-//sombra
-draw_set_color(cor_dourada)
-draw_text(200, 204, texto)
+	//cor da barra background
+	//draw_rectangle_color(lar - 5, 155, lar + barra_tFix + 5, 180,  cor_claro, cor_claro, cor_claro, cor_claro, false)
+	
+	//cor da barra de municao
+	draw_rectangle_color(lar, 160, lar + barra_tam, 175,  cor_dourada, cor_dourada, cor_dourada, cor_dourada, false)
+}
+
 
 
 

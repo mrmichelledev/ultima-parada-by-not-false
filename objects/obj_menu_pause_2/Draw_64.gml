@@ -4,10 +4,6 @@ var tam_menu = array_length(menu_pause);
 
 if (global.pause) {
 
-    // Coordenadas do mouse (em espaço GUI)
-    var _mx = device_mouse_x_to_gui(0);
-    var _my = device_mouse_y_to_gui(0);
-
     // Fundo translúcido
     draw_set_alpha(0.7);
     draw_set_color(c_black);
@@ -29,12 +25,12 @@ if (global.pause) {
 	    var texto   = menu_pause[i];
 	    var largura = string_width(texto);
 	    var altura  = string_height(texto);
-	    var tx      = _mx/2 - largura / 2;
-	    var ty      = _my/2 + i * espacamento;
+	    var tx      = _larg_gui/2 - largura / 2;
+	    var ty      = _alt_gui/2 + i * espacamento;
 
 	    // se for o item selecionado, desenha fundo
 	    if (i == index) {
-	        draw_sprite(spr_menu_bt, -1, _mx/2, ty)
+	        draw_sprite(spr_menu_bt_2, -1, _larg_gui/2, ty)
 	        draw_set_color(make_color_rgb(63, 62, 58));
 		
 	    } else draw_set_color(c_white);

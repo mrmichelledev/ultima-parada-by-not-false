@@ -11,17 +11,10 @@ if (keyboard_check_pressed(vk_escape)) {
 	global.pause = !global.pause
 	
 	audio_play_sound(sn_select, 1, false)
-				switch (index) {
-                    case menu_pause[0]:
-                        global.pause = false;
-                        break;
-
-                    case menu_pause[1]:
-                        show_message("Ainda vou configurar");
-                        break;
-
-                    case menu_pause[2]:
-                        room_goto(menu);
-                        break;
-                }
+	
+	switch (index) {
+       case menu_pause[0]: global.pause = false; break;
+       case menu_pause[1]: show_message("Ainda vou configurar"); break;
+	   case menu_pause[2]: room_goto(menu); break;
+    }
 }
