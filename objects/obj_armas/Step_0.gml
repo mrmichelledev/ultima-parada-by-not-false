@@ -125,10 +125,14 @@ if(instance_exists(arma_id)){
 		
 		ds_map_replace(arma_atual, "municao", municao_atual)
 		
-		show_debug_message(municao_atual)
 		
-		if(arma_atual == 3) obj_player.x -= 2
-		else obj_player.x -= 10 * arma_atual
+		if(arma_atual == 3){
+			if(obj_player.image_xscale == 1) obj_player.x -= 2
+			else  obj_player.x += 2
+		} else {
+			if(obj_player.image_xscale == 1) obj_player.x -= 10 * arma_atual
+			else  obj_player.x += 10 * arma_atual
+		}
 		
 		sScreen_Shake(5 + arma_atual, 5)
 		audio_play_sound(som, 2, false)

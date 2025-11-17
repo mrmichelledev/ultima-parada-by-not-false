@@ -1,6 +1,6 @@
 //geração procedural
 tamanho_c   = 128
-room_width  = tamanho_c * 40
+room_width  = tamanho_c * 20
 room_height = room_width div 2
 tamanho_w   = room_width div tamanho_c
 tamanho_h   = room_height div tamanho_c 
@@ -17,7 +17,8 @@ var yy          = tamanho_h div 2
 var troca_dir   = 1
 
 //quantidade de inimigos
-var inimigo_max = 20
+var inimigo_max = 3
+
 
 //auto tiles
 norte = 1
@@ -27,7 +28,7 @@ sul   = 8
 
 var tile_layer = layer_tilemap_get_id("WallTiles")
 
-for(var i = 0; i < 1500; i++){
+for(var i = 0; i < 300; i++){
 	if(irandom(troca_dir) == troca_dir)
 		direcao_c = irandom(3)
 	
@@ -83,11 +84,12 @@ for(var i = 0; i < tamanho_w; i++){
 				instance_create_layer(x1, y1, "instances", obj_player)
 				
 			if(inimigo_max > 0){
-				troca_dir = 25
+				troca_dir = 15
 				
 				//deixa o spawn dos inimigos aleatorios e verifica se a distancia entre eles é superior a 1000
-				if(irandom(troca_dir) == troca_dir and point_distance(x1, y1, obj_player.x, obj_player.y) > 1000){
+				if(irandom(troca_dir) == troca_dir and point_distance(x1, y1, obj_player.x, obj_player.y) > 200){
 					instance_create_layer(x1, y1, "instances", obj_inimigo1)
+					instance_create_layer(x1, y1, "instances", obj_inimigo2)
 					inimigo_max--
 				}
 			}

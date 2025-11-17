@@ -10,6 +10,7 @@ if(curr_state == REPOSITION){
 if(curr_state == ATTACK){
 	sprite_index = spr_inimigo1_atirando
 	attack();
+	
 }
 
 if(curr_state == IDLE){
@@ -24,6 +25,9 @@ if(curr_state == CHASING){
 
 time_passed++;
 atk_timer--;
+
+//efeito flash (feedback de dano)
+alfa = lerp(alfa, 0, 0.1)
 
 
 if(vida_atual == 0) instance_destroy()

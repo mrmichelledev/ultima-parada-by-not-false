@@ -18,7 +18,7 @@ velocidade_vertical   = lengthdir_y(velocidade * t, direcao)
 x += velocidade_horizontal
 y += velocidade_vertical
 
-
+collision()
 
 //direção da arma
 with(arma_player){

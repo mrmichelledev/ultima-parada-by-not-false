@@ -7,3 +7,7 @@ gerenciador_vida = new sVida(vida_maxima)
 font_scale       = 1;     // tamanho normal
 font_scale_max   = 1.3;   // tamanho máximo quando atira
 font_scale_speed = 0.05;  // velocidade de retorno
+
+//cursor
+cursor_sprite = spr_cursor
+window_set_cursor(cr_none)

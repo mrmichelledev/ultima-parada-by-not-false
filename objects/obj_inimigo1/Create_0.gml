@@ -92,3 +92,8 @@ colisao = instance_create_layer(x, y, "Instances", obj_inimigo_colisao)
 
 // diz que o dono da colisão é ESTE inimigo
 colisao.dono = id;
+
+
+//efeto flash (feedback de dano)
+alfa = 0
+cor  = c_white

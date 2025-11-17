@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite58",
-    "path":"sprites/Sprite58/Sprite58.yy",
+    "name":"spr_dano_2",
+    "path":"sprites/spr_dano_2/spr_dano_2.yy",
   },
   "spriteMaskId":null,
   "visible":true,
