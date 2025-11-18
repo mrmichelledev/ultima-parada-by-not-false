@@ -1,6 +1,6 @@
 //geração procedural
 tamanho_c        = 128
-room_width       = tamanho_c * 25
+room_width       = tamanho_c * 30
 room_height      = room_width div 2
 tamanho_w        = room_width div tamanho_c
 tamanho_h        = room_height div tamanho_c 

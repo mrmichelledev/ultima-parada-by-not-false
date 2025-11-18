@@ -42,6 +42,9 @@
     "name":"spr_inimigo2_correndo",
     "path":"sprites/spr_inimigo2_correndo/spr_inimigo2_correndo.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_inimigo2_colisao",
+    "path":"sprites/spr_inimigo2_colisao/spr_inimigo2_colisao.yy",
+  },
   "visible":true,
 }
