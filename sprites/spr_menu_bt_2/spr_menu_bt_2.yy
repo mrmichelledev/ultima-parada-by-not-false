@@ -23,7 +23,7 @@
   ],
   "name":"spr_menu_bt_2",
   "nineSlice":null,
-  "origin":5,
+  "origin":4,
   "parent":{
     "name":"menu",
     "path":"folders/Sprites/menu.yy",
@@ -77,7 +77,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":500,
+    "xorigin":250,
     "yorigin":30,
   },
   "swatchColours":null,

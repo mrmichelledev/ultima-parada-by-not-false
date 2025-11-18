@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sn_explosao",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":2.9040136,
+  "exportDir":"",
+  "name":"sn_explosao",
+  "parent":{
+    "name":"Sons",
+    "path":"folders/Sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sn_explosao.mp3",
+  "volume":1.0,
+}

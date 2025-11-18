@@ -1,3 +1,6 @@
+//herdando funcoes do pai (depth)
+event_inherited();
+
 if(global.pause){image_speed = 0; exit}
 else image_speed = 1
 
@@ -18,7 +21,7 @@ velocidade_vertical   = lengthdir_y(velocidade * t, direcao)
 x += velocidade_horizontal
 y += velocidade_vertical
 
-collision()
+
 
 //direção da arma
 with(arma_player){

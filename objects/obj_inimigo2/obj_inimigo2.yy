@@ -17,7 +17,10 @@
     "name":"inimigos",
     "path":"folders/Objetos/elementos do jogo/inimigos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_depth",
+    "path":"objects/obj_depth/obj_depth.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -36,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_inimigo2",
-    "path":"sprites/spr_inimigo2/spr_inimigo2.yy",
+    "name":"spr_inimigo2_correndo",
+    "path":"sprites/spr_inimigo2_correndo/spr_inimigo2_correndo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

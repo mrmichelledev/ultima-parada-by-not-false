@@ -1,3 +1,5 @@
+event_inherited()
+
 //movimentação
 velocidade            = 5
 velocidade_horizontal = 0

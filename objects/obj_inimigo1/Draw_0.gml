@@ -11,4 +11,3 @@ if(alfa != 0){
 
 	gpu_set_fog(false, cor, 0, 0)
 }
-

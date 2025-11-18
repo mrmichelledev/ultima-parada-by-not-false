@@ -1,3 +1,6 @@
+//herdando funcoes do pai (depth)
+event_inherited();
+
 draw_self();
 
 //Todos estes foram feitos para teste
@@ -10,20 +13,7 @@ if(keyboard_check(ord("P"))){
 	else draw_path(path_to_origin, x, y, 0);
 }
 
-if(curr_state == IDLE){
-	draw_text_transformed(x, y-20, "idle", 0.5, 0.5, image_angle);
-}
-if(curr_state == REPOSITION){
-	draw_text_transformed(x, y-20, "reposition", 0.5, 0.5, image_angle);
-}
 
-if(curr_state == ATTACK){
-	draw_text_transformed(x, y-20, "attack", 0.5, 0.5, image_angle);
-}
-
-if(curr_state == CHASING){
-	draw_text_transformed(x, y-20, "chasing", 0.5, 0.5, image_angle);
-}
 
 
 var _atk_type = false;
@@ -34,11 +24,6 @@ if(!collision_line(x, y, obj_player.x, obj_player.y, obj_parede, false, true) &&
 				_atk_type = true;
 			}
 
-draw_text_transformed(x, y-30, _atk_type, 0.5, 0.5, image_angle);
-
-draw_text_transformed(x, y+10, point_distance(x, y, obj_player.x, obj_player.y), 0.5, 0.5, image_angle);
-draw_text_transformed(x, y+20, time_passed, 0.5, 0.5, image_angle);
-draw_text_transformed(x, y+30, atk_timer, 0.5, 0.5, image_angle);
 
 
 gerenciador_vida.desenha_barraV(x - 15, y - 60, 30, 5, c_red, c_green, c_white, false)

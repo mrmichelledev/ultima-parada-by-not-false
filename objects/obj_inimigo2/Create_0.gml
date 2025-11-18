@@ -1,4 +1,5 @@
-
+//herdando funcoes do pai (depth)
+event_inherited();
 curr_state = IDLE;
 
 x_origin = x;

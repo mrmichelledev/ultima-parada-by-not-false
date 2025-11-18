@@ -1,23 +1,26 @@
+//herdando funcoes do pai (depth)
+event_inherited();
+
 get_aggro();
 
 get_state_3();
 
 if(curr_state == REPOSITION){
-	sprite_index = spr_inimigo2
+	sprite_index = spr_inimigo2_correndo
 	reposition();
 }
 
 if(curr_state == ATTACK){
-	sprite_index = spr_inimigo2
+	sprite_index = spr_inimigo2_ataque
 	attack_3();
 }
 
 if(curr_state == IDLE){
-	sprite_index = spr_inimigo2_1
+	sprite_index = spr_inimigo2_parado
 	return_to_origin();
 }
 if(curr_state == CHASING){
-	sprite_index = spr_inimigo2
+	sprite_index = spr_inimigo2_correndo
 	chase_player();
 }
 

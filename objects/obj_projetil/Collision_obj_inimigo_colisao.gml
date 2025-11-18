@@ -1,2 +1,4 @@
+
 collision()
+
 instance_destroy()

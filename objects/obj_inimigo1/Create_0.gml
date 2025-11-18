@@ -1,3 +1,6 @@
+//herdando funcoes do pai (depth)
+event_inherited();
+
 #macro IDLE 0
 #macro REPOSITION 1
 #macro ATTACK 2
@@ -28,7 +31,7 @@ atk_range = aggro_dis;
 optimal_dis = atk_range - 40;
 atk_cd = 80;
 atk_timer = atk_cd;
-bullet_speed = 20;
+bullet_speed = 15;
 
 detection_delay = 60;
 detection_timer = 60;
